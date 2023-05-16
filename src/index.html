@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/dist/output.css" rel="stylesheet">
+  <title>ArticleAI</title>
+  <style>
+      .output-text{
+          white-space: break-spaces;
+      }
+  </style>
+</head>
+
+<body class="container mx-auto px-4 font-serif">
+
+
+  <div class="flex justify-between mt-1">
+    <div>
+      <p>ArticleAI News</p>
+    </div>
+    <div>
+      <p><span id="date-time"></span></p>
+    </div>
+  </div>
+
+
+  <div class="flex justify-center border-b border-t mt-1 border-black">
+    <div class="flex flex-col pt-6 pb-6">
+      <h1 class="text-6xl text-center">ArticleAI</h1>
+      <h2 class="text-lg text-center mt-1">Create News Article Using Artificial Intelligent</h2>
+    </div>
+  </div>
+
+
+  <div class="flex justify-center border-t border-black mt-1">
+  </div>
+
+
+  <div class="flex justify-between mt-6">
+    <!-- English -->
+    <div class="container mx-auto mr-4">
+      <div>
+        <h1 class="text-center">Generate News Article with topic you desired!</h1>
+        <p class="text-sm text-center mt-1"><span></span>English</p>
+      </div>
+      
+      <!-- Input -->
+      <div class="border-t border-b border-black mt-8 pb-4">
+        <h1 class="mt-2">Insert topic you want to generate:</h1>
+
+        <form action="aien.php" method="post">
+          <div class=" flex mt-4 justify-center">
+            <input type="text" name="prompt" placeholder="Article Topic"
+              class="border text-center border-black rounded p-2">
+          </div>
+          <div class="flex mt-4 justify-center">
+            <input type="submit" value="Generate" class="bg-black text-white rounded p-2 hover:bg-slate-600">
+          </div>
+        </form>
+      </div>
+      <!-- Output -->
+      <div>
+        <h1 class="mt-2">Article about <span class="font-bold">
+            <?= $prompt?>
+            Contoh
+          </span></h1>
+        <div class="output-text text-sm">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget sodales dui, sit amet rutrum arcu. Aliquam fermentum vulputate nisl eu accumsan. Phasellus pulvinar viverra augue, sed varius neque laoreet sed. Donec vitae rutrum arcu. Ut porttitor posuere quam, at lobortis mauris placerat sed. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam at malesuada justo. In hac habitasse platea dictumst. Pellentesque elementum augue vel ipsum pharetra eleifend. Curabitur maximus varius risus sit amet tincidunt. Nunc vulputate sem sit amet sagittis dictum. Integer porttitor a tellus eu mattis. Donec nec vehicula risus.
+  
+                Nunc risus orci, sagittis ac orci in, consectetur vehicula diam. Morbi libero lectus, eleifend vel dictum a, porta id mi. Pellentesque ac mattis augue. Nulla consequat, augue et vestibulum euismod, massa lectus rhoncus libero, non elementum metus massa ut magna. Fusce laoreet, orci eu eleifend vehicula, tortor justo ultricies elit, a gravida sapien erat elementum justo. Etiam suscipit, felis vel sollicitudin consequat, metus erat laoreet tellus, volutpat consectetur nulla mauris eu diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam vitae sollicitudin magna. Sed imperdiet rhoncus arcu. Cras venenatis, nisl ac ornare maximus, velit lectus lobortis elit, eget scelerisque velit mauris ac nulla. Curabitur id nisi lectus.
+                
+                <?= $response?>              
+              </p>
+        </div>
+      </div>
+    </div>
+    <!-- Indonesia -->
+    <div class="container mx-auto ml-4">
+      <div>
+        <h1 class="text-center">Buat Artikel Berita sesuai topik keinginan anda!</h1>
+        <p class="text-sm text-center mt-1"><span></span>Bahasa Indonesia</p>
+      </div>
+      <!-- Input -->
+      <div class="border-t border-b border-black mt-8 pb-4">
+        <h1 class="mt-2">Masukan topik yang anda inginkan :</h1>
+
+        <form action="ai.php" method="post">
+          <div class=" flex mt-4 justify-center">
+            <input type="text" name="prompt" placeholder="Topik Artikel"
+              class="border text-center border-black rounded p-2">
+          </div>
+          <div class="flex mt-4 justify-center">
+            <input type="submit" value="Generate" class="bg-black text-white rounded p-2 hover:bg-slate-600">
+          </div>
+        </form>
+      </div>
+      <!-- Output -->
+      <div>
+        <h1 class="mt-2">Artikel tentang <span class="font-bold">
+            <?= $prompt?>
+            Contoh
+          </span></h1>
+          <div class="output-text text-sm">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget sodales dui, sit amet rutrum arcu. Aliquam fermentum vulputate nisl eu accumsan. Phasellus pulvinar viverra augue, sed varius neque laoreet sed. Donec vitae rutrum arcu. Ut porttitor posuere quam, at lobortis mauris placerat sed. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam at malesuada justo. In hac habitasse platea dictumst. Pellentesque elementum augue vel ipsum pharetra eleifend. Curabitur maximus varius risus sit amet tincidunt. Nunc vulputate sem sit amet sagittis dictum. Integer porttitor a tellus eu mattis. Donec nec vehicula risus.
+  
+              Nunc risus orci, sagittis ac orci in, consectetur vehicula diam. Morbi libero lectus, eleifend vel dictum a, porta id mi. Pellentesque ac mattis augue. Nulla consequat, augue et vestibulum euismod, massa lectus rhoncus libero, non elementum metus massa ut magna. Fusce laoreet, orci eu eleifend vehicula, tortor justo ultricies elit, a gravida sapien erat elementum justo. Etiam suscipit, felis vel sollicitudin consequat, metus erat laoreet tellus, volutpat consectetur nulla mauris eu diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam vitae sollicitudin magna. Sed imperdiet rhoncus arcu. Cras venenatis, nisl ac ornare maximus, velit lectus lobortis elit, eget scelerisque velit mauris ac nulla. Curabitur id nisi lectus.
+              
+              <?= $response?>              
+            </p>
+          </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="border-t border-black mt-6 pb-1">
+    </div>
+  <div class="border-t border-black">
+    <div class="flex flex-row justify-between mt-1">
+
+      <p>Written by Muhammad Dagistan Silawane</p>
+      <p>Powered by OpenAI & ChatGPT</p>
+    </div>
+  </div>
+  <!-- Script -->
+  <script>
+    var dt = new Date();
+    document.getElementById('date-time').innerHTML = dt;
+  </script>
+</body>
+
+</html>
