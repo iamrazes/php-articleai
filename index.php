@@ -41,8 +41,7 @@
   </style>
 </head>
 
-<body class="container mx-auto px-4 font-serif">
-
+<body class="antialiased container mx-auto px-4 font-serif bg-gray-100">
 
   <div class="flex justify-between mt-1">
     <div>
@@ -80,7 +79,7 @@
         <form action="aien.php" method="post">
           <div class=" flex mt-4 justify-center">
             <input type="text" name="prompt" placeholder="Article Topic"
-              class="border text-center border-black rounded p-2">
+              class="border text-center border-black rounded p-2 bg-gray-100">
           </div>
           <div class="flex mt-4 justify-center">
             <input type="submit" value="Generate" class="bg-black text-white rounded p-2 hover:bg-slate-600">
@@ -104,7 +103,7 @@
         <form action="aiid.php" method="post">
           <div class=" flex mt-4 justify-center">
             <input type="text" name="prompt" placeholder="Topik Artikel"
-              class="border text-center border-black rounded p-2">
+              class="border text-center border-black rounded p-2 bg-gray-100">
           </div>
           <div class="flex mt-4 justify-center">
             <input type="submit" value="Generate" class="bg-black text-white rounded p-2 hover:bg-slate-600">

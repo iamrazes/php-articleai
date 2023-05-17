@@ -4,20 +4,21 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Orhanerday\OpenAi\OpenAi;
 
-$open_ai_key = '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';
+$open_ai_key = 'use you openai api key';
 $open_ai = new OpenAi($open_ai_key);
 
 $prompt = $_POST['prompt'];
 
 $complete = $open_ai->completion([
-'model' => 'text-davinci-003',
-'prompt' => 'Buat artikel tentang  '. $prompt,
-'temperature' => 0.9,
-'max_tokens' => 500,
-'frequency_penalty' => 0,
-'presence_penalty' => 0.6,
+  'model' => 'text-davinci-003',
+  'prompt' => 'Buat artikel tentang  ' . $prompt,
+  'temperature' => 0.9,
+  'max_tokens' => 500,
+  'frequency_penalty' => 0,
+  'presence_penalty' => 0.6,
 ]);
 
+// var_dump($complete);
 $response = json_decode($complete, true);
 $response = $response["choices"][0]["text"];
 ?>
@@ -31,13 +32,13 @@ $response = $response["choices"][0]["text"];
   <link href="/dist/output.css" rel="stylesheet">
   <title>ArticleAI</title>
   <style>
-      .output-text{
-          white-space: break-spaces;
-      }
+    .output-text {
+      white-space: break-spaces;
+    }
   </style>
 </head>
 
-<body class="container mx-auto px-4 font-serif">
+<body class="antialiased container mx-auto px-4 font-serif">
 
 
   <div class="flex justify-between mt-1">
@@ -74,8 +75,8 @@ $response = $response["choices"][0]["text"];
 
         <form action="aien.php" method="post">
           <div class=" flex mt-4 justify-center">
-            <input type="text" name="prompt" placeholder="Article Topic"
-              class="border text-center border-black rounded p-2">
+            <input type="text" name="prompt" placeholder="Article Topic" 
+              class="border text-center border-black rounded p-2 bg-gray-100">
           </div>
           <div class="flex mt-4 justify-center">
             <input type="submit" value="Generate" class="bg-black text-white rounded p-2 hover:bg-slate-600">
@@ -98,8 +99,8 @@ $response = $response["choices"][0]["text"];
 
         <form action="aiid.php" method="post">
           <div class=" flex mt-4 justify-center">
-            <input type="text" name="prompt" placeholder="Topik Artikel"
-              class="border text-center border-black rounded p-2">
+            <input type="text" name="prompt" placeholder="Topik Artikel" 
+              class="border text-center border-black rounded p-2 bg-gray-100">
           </div>
           <div class="flex mt-4 justify-center">
             <input type="submit" value="Generate" class="bg-black text-white rounded p-2 hover:bg-slate-600">
@@ -109,10 +110,10 @@ $response = $response["choices"][0]["text"];
       <!-- Output -->
       <div>
         <h1 class="mt-2">Artikel tentang <span class="font-bold">
-            <?= $prompt?>
+            <?= $prompt ?>
           </span></h1>
         <div class="output-text text-sm">
-           <p><?= $response?></p>
+          <p><?= $prompt ?><?= $response ?></p>
         </div>
       </div>
 
@@ -123,7 +124,7 @@ $response = $response["choices"][0]["text"];
 
 
   <div class="border-t border-black mt-6 pb-1">
-    </div>
+  </div>
   <div class="border-t border-black">
     <div class="flex flex-row justify-between mt-1">
 
