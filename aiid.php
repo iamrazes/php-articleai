@@ -4,7 +4,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Orhanerday\OpenAi\OpenAi;
 
-$open_ai_key = 'use you openai api key';
+$open_ai_key = 'use your api key here';
 $open_ai = new OpenAi($open_ai_key);
 
 $prompt = $_POST['prompt'];
