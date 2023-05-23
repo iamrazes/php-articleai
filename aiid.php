@@ -4,7 +4,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Orhanerday\OpenAi\OpenAi;
 
-$open_ai_key = 'use your api key here';
+$open_ai_key = 'api key';
 $open_ai = new OpenAi($open_ai_key);
 
 $prompt = $_POST['prompt'];
@@ -17,6 +17,17 @@ $complete = $open_ai->completion([
   'frequency_penalty' => 0,
   'presence_penalty' => 0.6,
 ]);
+
+$complete2 = $open_ai->image(
+  [
+    "prompt" => $prompt,
+    "n" => 1,
+    "size" => "256x256",
+    "response_format" => "url",
+  ]
+);
+
+$response2 = json_decode($complete2, true);
 
 // var_dump($complete);
 $response = json_decode($complete, true);
@@ -38,7 +49,7 @@ $response = $response["choices"][0]["text"];
   </style>
 </head>
 
-<body class="antialiased container mx-auto px-4 font-serif">
+<body class="antialiased container mx-auto px-4 font-serif bg-gray-100">
 
 
   <div class="flex justify-between mt-1">
@@ -65,7 +76,7 @@ $response = $response["choices"][0]["text"];
 
   <div class="flex justify-between mt-6">
     <!-- English -->
-    <div class="container mx-auto mr-4">
+    <div class="container mr-4">
       <div>
         <h1 class="text-center">Generate News Article with topic you desired!</h1>
         <p class="text-sm text-center mt-1"><span></span>English</p>
@@ -74,21 +85,20 @@ $response = $response["choices"][0]["text"];
         <h1 class="mt-2">Insert topic you want to generate:</h1>
 
         <form action="aien.php" method="post">
-          <div class=" flex mt-4 justify-center">
-            <input type="text" name="prompt" placeholder="Article Topic" 
-              class="border text-center border-black rounded p-2 bg-gray-100">
-          </div>
-          <div class="flex mt-4 justify-center">
-            <input type="submit" value="Generate" class="bg-black text-white rounded p-2 hover:bg-slate-600">
-          </div>
-        </form>
+            <div class=" flex mt-4 justify-center">
+              <input type="text" name="prompt" placeholder="Article Topic" class="border text-center border-black rounded p-2 bg-gray-100">
+            </div>
+            <div class="flex mt-4 justify-center">
+              <input type="submit" value="Generate" class="bg-black text-white rounded p-2 hover:bg-slate-600">
+            </div>
+          </form>
       </div>
       <!-- Output -->
       <div>
       </div>
     </div>
     <!-- Indonesia -->
-    <div class="container mx-auto ml-4">
+    <div class="container ml-4">
       <div>
         <h1 class="text-center">Buat Artikel Berita sesuai topik keinginan anda!</h1>
         <p class="text-sm text-center mt-1"><span></span>Bahasa Indonesia</p>
@@ -98,28 +108,33 @@ $response = $response["choices"][0]["text"];
         <h1 class="mt-2">Masukan topik yang anda inginkan :</h1>
 
         <form action="aiid.php" method="post">
-          <div class=" flex mt-4 justify-center">
-            <input type="text" name="prompt" placeholder="Topik Artikel" 
-              class="border text-center border-black rounded p-2 bg-gray-100">
-          </div>
-          <div class="flex mt-4 justify-center">
-            <input type="submit" value="Generate" class="bg-black text-white rounded p-2 hover:bg-slate-600">
-          </div>
-        </form>
+            <div class=" flex mt-4 justify-center">
+              <input type="text" name="prompt" placeholder="Article Topic" class="border text-center border-black rounded p-2 bg-gray-100">
+            </div>
+            <div class="flex mt-4 justify-center">
+              <input type="submit" value="Generate" class="bg-black text-white rounded p-2 hover:bg-slate-600">
+            </div>
+          </form>
       </div>
       <!-- Output -->
       <div>
-        <h1 class="mt-2">Artikel tentang <span class="font-bold">
+        <h1 class="mt-2">Article tentang <span class="font-bold">
             <?= $prompt ?>
           </span></h1>
-        <div class="output-text text-sm">
+          <div style="filter: grayscale(100%);" class="mt-4 -py-4">
+            <img src="<?= $response2["data"][0]["url"] ?>">
+          </div>
+        <div class="output-text">
           <p><?= $prompt ?><?= $response ?></p>
         </div>
       </div>
+      
 
-    </div>
 
   </div>
+
+  </div>
+
 
 
 
