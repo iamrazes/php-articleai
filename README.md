@@ -1,6 +1,6 @@
 ## About ArticleAI
 
-ArticleAI is a simple php local website with integrated OpenAI.
+ArticleAI is a simple PHP-based local website that integrated with OpenAI for generating an articles to your specific prompts.
 
 ### Installation Guide
 
